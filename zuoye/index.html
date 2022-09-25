@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="js/prefixfree.min.js" async></script>
+    <script>
+            (function () {
+                const computed = function computed() {
+                    let HTML = document.documentElement,
+                        curW = HTML.clientWidth,
+                        desW = 750;
+                    if (curW >= desW) {
+                        HTML.style.fontSize = "100px";
+                        return;
+                    }
+                    HTML.style.fontSize = `${curW / (desW / 100)}px`;
+                };
+                computed();
+                window.addEventListener("resize", computed);
+    
+    
+                /* 切换为横屏的状态 */
+                window.addEventListener("orientationchange", function () {
+                    let rotate = Math.abs(this.window.orientation);
+                    if (rotate === 90) {
+                        // 横屏
+                        alert("横屏体验不佳，请您切换回竖屏！");
+                        return;
+                    }
+                });
+            })()
+    
+        </script>
+</head>
+<body>
+        <div id="app">
+                <!-- 头部 -->
+                <header class="header_box">
+                    <div class="info">
+                        <img src="images/1.jpg" class="cover" alt="">
+                        <div class="text">
+                            <h2 class="title">《够爱》</h2>
+                            <h3 class="author">汪东城</h3>
+                        </div>
+                    </div>
+                    <a href="javascript:;" class="music_btn"></a>
+                </header>
+        
+                <!-- 主体 -->
+                <main class="main_box">
+                    <div class="wrapper">
+                       <!--  <p class="active">我的梦 (华为手机主题曲) - 张靓颖</p>
+                        <p>词：王海涛/张靓颖</p> -->
+                    </div>
+                </main>
+        
+                <!-- 尾部 -->
+                <footer class="footer_box">
+                    <div class="progress">
+                        <span class="cur_time">00:00</span>
+                        <div class="prog_bg">
+                            <div class="prog_cur"></div>
+                        </div>
+                        <span class="total_time">04:55</span>
+        
+                    </div>
+                    <a href="javascript:;" class="download">下载这首音乐</a>
+                </footer>
+        
+                <!-- 遮罩层 -->
+                <div class="bg_img"></div>
+                <div class="bg_mark"></div>
+                <audio src="images/C4000043M6sR1gLX8S.m4a" preload="none" class="myAudio"></audio>
+            </div>
+
+      
+
+        <script src="js/fastclick.js" defer></script>
+        <script src="js/subscribe.js" defer></script>
+        <script src="js/index.js" defer></script>
+</body>
+</html>
